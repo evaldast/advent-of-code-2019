@@ -1,13 +1,10 @@
 use std::fs::File;
 use std::io::{BufReader, Lines};
 
+use advent_of_code_2019::utils;
+
 pub fn calculate(lines: Lines<BufReader<File>>) -> String {
-    let mut input: Vec<u32> = lines
-        .collect::<Result<String, _>>()
-        .unwrap()
-        .split(',')
-        .map(|item| item.parse::<u32>().expect("Failed parsing int value"))
-        .collect();
+    let mut input = utils::parse_lines_with_seperator::<u32>(lines, ',');
 
     initiate_gravity_restore_assist(&mut input);
     let result = process_input(&mut input);
