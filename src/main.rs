@@ -12,6 +12,7 @@ fn main() -> Result<()> {
         "1-1" => day_1::task_1::calculate(utils::get_input("input/day_1/task_1")),
         "1-2" => day_1::task_2::calculate(utils::get_input("input/day_1/task_1")),
         "2-1" => day_2::task_1::calculate(utils::get_input("input/day_2/task_1")),
+        "2-2" => day_2::task_2::calculate(utils::get_input("input/day_2/task_1")),
         _ => "Unexpected input".to_owned(),
     };
 

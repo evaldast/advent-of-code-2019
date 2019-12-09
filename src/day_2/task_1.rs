@@ -9,22 +9,22 @@ pub fn calculate(lines: Lines<BufReader<File>>) -> String {
         .map(|item| item.parse::<u32>().expect("Failed parsing int value"))
         .collect();
 
-    initiate_gravity_restore_assist(&mut input);    
-    let result = process_input(&mut input);    
+    initiate_gravity_restore_assist(&mut input);
+    let result = process_input(&mut input);
 
     result.to_string()
 }
 
-fn process_input(input: &mut [u32]) -> u32 {    
-    for index in (0..input.len()).step_by(4) {        
+pub fn process_input(input: &mut [u32]) -> u32 {
+    for index in (0..input.len()).step_by(4) {
         let operation: u32 = input[index];
         let op_indices = get_opcode_indices(index, input);
 
         match operation {
             1 => add(op_indices, input),
             2 => multiply(op_indices, input),
-            99 => return input[0],                
-            _ => panic!("Undefined opcode")
+            99 => return input[0],
+            _ => panic!("Undefined opcode"),
         }
     }
 
@@ -35,7 +35,7 @@ fn add(indices: (usize, usize, usize), input: &mut [u32]) {
     input[indices.0] = input[indices.1] + input[indices.2]
 }
 
-fn multiply(indices: (usize, usize, usize), input: &mut [u32]) {    
+fn multiply(indices: (usize, usize, usize), input: &mut [u32]) {
     input[indices.0] = input[indices.1] * input[indices.2]
 }
 
