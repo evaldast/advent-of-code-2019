@@ -1,6 +1,6 @@
 use std::fs::File;
 use std::io::{BufRead, BufReader, Error, Lines};
-use std::str;
+use std::str::FromStr;
 
 pub fn get_input(input_path: &str) -> Lines<BufReader<File>> {
     let file = File::open(input_path).expect("Failed opening file");
@@ -17,8 +17,8 @@ pub fn parse_uint(line: &Result<String, Error>) -> Option<u32> {
 
 pub fn parse_lines_with_seperator<T>(lines: Lines<BufReader<File>>, seperator: char) -> Vec<T>
 where
-    T: str::FromStr,
-    <T as std::str::FromStr>::Err: std::fmt::Debug,
+    T: FromStr,
+    T::Err: std::fmt::Debug,
 {
     lines
         .collect::<Result<String, _>>()

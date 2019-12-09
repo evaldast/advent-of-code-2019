@@ -9,10 +9,10 @@ fn main() -> Result<()> {
     stdin().read_line(&mut user_input)?;
 
     let result = match user_input.trim() {
-        "1-1" => day_1::task_1::calculate(utils::get_input("input/day_1/task_1")),
-        "1-2" => day_1::task_2::calculate(utils::get_input("input/day_1/task_1")),
-        "2-1" => day_2::task_1::calculate(utils::get_input("input/day_2/task_1")),
-        "2-2" => day_2::task_2::calculate(utils::get_input("input/day_2/task_1")),
+        "1-1" => day_1::task_1::calculate(utils::get_input("input/day_1")),
+        "1-2" => day_1::task_2::calculate(utils::get_input("input/day_1")),
+        "2-1" => day_2::task_1::calculate(utils::get_input("input/day_2")),
+        "2-2" => day_2::task_2::calculate(utils::get_input("input/day_2")),
         _ => "Unexpected input".to_owned(),
     };
 

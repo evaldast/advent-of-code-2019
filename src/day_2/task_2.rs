@@ -14,7 +14,7 @@ pub fn calculate(lines: Lines<BufReader<File>>) -> String {
             input_clone[1] = noun;
             input_clone[2] = verb;
 
-            if (day_2::task_1::process_input(&mut input_clone)) == 19690720u32 {
+            if day_2::task_1::process_input(&mut input_clone) == 19690720u32 {
                 return (100 * noun + verb).to_string();
             }
         }
